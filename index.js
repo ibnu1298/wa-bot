@@ -37,12 +37,66 @@ const withTimeout = (promise, ms) =>
       setTimeout(() => reject(new Error("Timeout")), ms)
     ),
   ]);
+
+function startClient() {
+  client = new Client({
+    authStrategy: new LocalAuth({ dataPath: "./.wwebjs_auth" }),
+    puppeteer: {
+      headless: true,
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    },
+  });
+
+  client.on("qr", (qr) => {
+    console.log("Scan QR:", qr);
+  });
+
+  client.on("ready", () => {
+    console.log("✅ WhatsApp Client is ready!");
+  });
+
+  client.on("disconnected", (reason) => {
+    console.log("❌ Disconnected:", reason);
+    restartClient(); // restart otomatis
+  });
+
+  client.initialize();
+}
+
+function restartClient() {
+  if (client) {
+    client
+      .destroy()
+      .then(() => {
+        console.log("🔁 Client destroyed. Restarting...");
+        startClient();
+      })
+      .catch((err) => {
+        console.error("❌ Error saat destroy client:", err);
+        startClient();
+      });
+  } else {
+    startClient();
+  }
+}
+
+setInterval(() => {
+  if (!client || !client.info || !client.info.wid) {
+    console.log("⚠️ Client tidak siap. Restarting...");
+    restartClient();
+  } else {
+    console.log("✅ Client OK:", client.info.wid.user);
+  }
+}, 30000);
+
 app.get("/qr", (req, res) => {
   if (!currentQR) return res.send("QR belum tersedia");
   res.send(`<img src="${currentQR}" />`);
 });
+
 // === Endpoint kirim pesan ===
 app.post("/send", async (req, res) => {
+  startClient();
   const { to, message } = req.body;
 
   if (!to || !message) {
@@ -101,3 +155,4 @@ client.initialize();
 
 const PORT = process.env.PORT || 3005;
 app.listen(PORT, () => console.log(`Server ready on http://localhost:${PORT}`));
+startClient();
