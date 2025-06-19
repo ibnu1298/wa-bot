@@ -30,7 +30,13 @@ client.on("qr", async (qr) => {
   currentQR = await QRCode.toDataURL(qr);
   console.log(`QR tersedia di: http://localhost:${PORT}/qr`);
 });
-
+const withTimeout = (promise, ms) =>
+  Promise.race([
+    promise,
+    new Promise((_, reject) =>
+      setTimeout(() => reject(new Error("Timeout")), ms)
+    ),
+  ]);
 app.get("/qr", (req, res) => {
   if (!currentQR) return res.send("QR belum tersedia");
   res.send(`<img src="${currentQR}" />`);
@@ -67,7 +73,17 @@ app.post("/send", async (req, res) => {
 
   try {
     const chatId = `${to}@c.us`;
-    await client.sendMessage(chatId, message);
+    const isRegistered = await client.isRegisteredUser(chatId);
+
+    if (!isRegistered) {
+      return res
+        .status(400)
+        .json(response.error("Nomor tidak terdaftar di WhatsApp"));
+    }
+    const start = Date.now();
+    await withTimeout(client.sendMessage(chatId, message), 15000); // timeout 15 detik
+    const end = Date.now();
+    console.log(`Pesan dikirim dalam ${end - start}ms`);
     res.json({ success: true, to, message });
   } catch (err) {
     console.error("Gagal kirim:", err);
