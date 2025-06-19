@@ -81,10 +81,16 @@ app.post("/send", async (req, res) => {
         .json(response.error("Nomor tidak terdaftar di WhatsApp"));
     }
     const start = Date.now();
+    console.log("Mengirim....");
+
     await withTimeout(client.sendMessage(chatId, message), 15000); // timeout 15 detik
     const end = Date.now();
+    console.log("Terkirim....");
     console.log(`Pesan dikirim dalam ${end - start}ms`);
     res.json({ success: true, to, message });
+    client.on("ready", () => {
+      console.log("WhatsApp Client ready!");
+    });
   } catch (err) {
     console.error("Gagal kirim:", err);
     res.status(500).json(response.error("Gagal mengirim pesan"));
