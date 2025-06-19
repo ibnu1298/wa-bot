@@ -1,0 +1,47 @@
+2025/06/19-14:35:57.670 3298 Reusing MANIFEST D:\Aqil\Programming\NodeJS\wa-bot\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/06/19-14:35:57.670 3298 Recovering log #543
+2025/06/19-14:35:57.670 3298 Reusing old log D:\Aqil\Programming\NodeJS\wa-bot\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000543.log 
+2025/06/19-14:35:58.518 a2ac Compacting 1@1 + 10@2 files
+2025/06/19-14:35:58.578 a2ac Generated table #548@1: 47273 keys, 2204539 bytes
+2025/06/19-14:35:58.607 a2ac Generated table #549@1: 18989 keys, 2170830 bytes
+2025/06/19-14:35:58.626 a2ac Generated table #550@1: 3188 keys, 2159223 bytes
+2025/06/19-14:35:58.646 a2ac Generated table #551@1: 2573 keys, 2154484 bytes
+2025/06/19-14:35:58.664 a2ac Generated table #552@1: 3555 keys, 2151672 bytes
+2025/06/19-14:35:58.701 a2ac Generated table #553@1: 30714 keys, 2239535 bytes
+2025/06/19-14:35:58.739 a2ac Generated table #554@1: 30536 keys, 2228429 bytes
+2025/06/19-14:35:58.755 a2ac Generated table #555@1: 5280 keys, 2124183 bytes
+2025/06/19-14:35:58.790 a2ac Generated table #556@1: 46752 keys, 2180919 bytes
+2025/06/19-14:35:58.850 a2ac Generated table #557@1: 98559 keys, 2247835 bytes
+2025/06/19-14:35:58.855 a2ac Generated table #558@1: 3527 keys, 81612 bytes
+2025/06/19-14:35:58.855 a2ac Compacted 1@1 + 10@2 files => 21943261 bytes
+2025/06/19-14:35:58.857 a2ac compacted to: files[ 0 1 15 0 0 0 0 ]
+2025/06/19-14:35:58.857 a2ac Delete type=2 #531
+2025/06/19-14:35:58.857 a2ac Delete type=2 #532
+2025/06/19-14:35:58.857 a2ac Delete type=2 #533
+2025/06/19-14:35:58.857 a2ac Delete type=2 #534
+2025/06/19-14:35:58.857 a2ac Delete type=2 #535
+2025/06/19-14:35:58.857 a2ac Delete type=2 #536
+2025/06/19-14:35:58.857 a2ac Delete type=2 #537
+2025/06/19-14:35:58.857 a2ac Delete type=2 #538
+2025/06/19-14:35:58.857 a2ac Delete type=2 #539
+2025/06/19-14:35:58.857 a2ac Delete type=2 #540
+2025/06/19-14:35:58.857 a2ac Delete type=2 #545
+2025/06/19-14:35:59.054 734c Level-0 table #560: started
+2025/06/19-14:35:59.058 734c Level-0 table #560: 13899 bytes OK
+2025/06/19-14:35:59.060 734c Delete type=0 #543
+2025/06/19-14:35:59.060 734c Manual compaction at level-0 from '\x00 \x00\x00\x00' @ 72057594037927935 : 1 .. '\x00!\x00\x00\x00' @ 0 : 0; will stop at '\x00 \x00\x00\x05' @ 2384330 : 1
+2025/06/19-14:35:59.060 734c Compacting 1@0 + 1@1 files
+2025/06/19-14:35:59.064 734c Generated table #561@0: 390 keys, 7931 bytes
+2025/06/19-14:35:59.071 734c Generated table #562@0: 6013 keys, 122975 bytes
+2025/06/19-14:35:59.071 734c Compacted 1@0 + 1@1 files => 130906 bytes
+2025/06/19-14:35:59.073 734c compacted to: files[ 0 2 15 0 0 0 0 ]
+2025/06/19-14:35:59.073 734c Delete type=2 #560
+2025/06/19-14:35:59.073 734c Manual compaction at level-0 from '\x00 \x00\x00\x05' @ 2384330 : 1 .. '\x00!\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/06/19-14:36:01.130 cf8 Compacting 1@1 + 1@2 files
+2025/06/19-14:36:01.190 cf8 Generated table #563@1: 47256 keys, 2204107 bytes
+2025/06/19-14:36:01.213 cf8 Generated table #564@1: 97 keys, 3702 bytes
+2025/06/19-14:36:01.213 cf8 Compacted 1@1 + 1@2 files => 2207809 bytes
+2025/06/19-14:36:01.216 cf8 compacted to: files[ 0 1 16 0 0 0 0 ]
+2025/06/19-14:36:01.216 cf8 Delete type=2 #546
+2025/06/19-14:36:01.216 cf8 Delete type=2 #548
+2025/06/19-14:36:01.216 cf8 Delete type=2 #561
