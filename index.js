@@ -27,7 +27,7 @@ let currentQR = "";
 
 client.on("qr", async (qr) => {
   currentQR = await QRCode.toDataURL(qr);
-  console.log("QR tersedia di: http://localhost:${PORT}/qr");
+  console.log(`QR tersedia di: http://localhost:${PORT}/qr`);
 });
 
 app.get("/qr", (req, res) => {
