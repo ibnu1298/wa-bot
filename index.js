@@ -41,18 +41,26 @@ app.post("/send", async (req, res) => {
   if (!to || !message) {
     return res.status(400).json({ error: "to & message wajib diisi" });
   }
-
+  if (to.startsWith("0")) {
+    return res
+      .status(400)
+      .json(
+        response.error(
+          "Nomor tidak boleh diawali dengan 0. Gunakan format internasional, misal: 62812xxxxxxx"
+        )
+      );
+  }
   try {
     const chatId = to.includes("@c.us") ? to : `${to}@c.us`;
     await client.sendMessage(chatId, message);
-    res.json({ status: "success", to, message });
+    res.json(response.success("Berhasil Mengirim Pesan", { to, message }));
   } catch (err) {
     console.error("Gagal kirim:", err);
-    res.status(500).json({ error: "Gagal mengirim pesan" });
+    res.status(500).json(response.error("Gagal mengirim pesan"));
   }
 });
 
 client.initialize();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3005;
 app.listen(PORT, () => console.log(`Server ready on http://localhost:${PORT}`));
