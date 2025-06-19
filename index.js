@@ -40,21 +40,35 @@ app.post("/send", async (req, res) => {
   const { to, message } = req.body;
 
   if (!to || !message) {
-    return res.status(400).json(response.error("to & message wajib diisi"));
+    return res.status(400).json({ error: "to & message wajib diisi" });
   }
-  if (to.startsWith("0")) {
+
+  // Validasi: nomor tidak boleh diawali 0
+  if (!/^[1-9][0-9]{9,14}$/.test(to)) {
     return res
       .status(400)
       .json(
         response.error(
-          "Nomor tidak boleh diawali dengan 0. Gunakan format internasional, misal: 62812xxxxxxx"
+          "Format nomor tidak valid. Gunakan format internasional tanpa 0 di depan, misal: 62812xxxxxxx"
         )
       );
   }
+
+  // Cek apakah WhatsApp client siap
+  if (!client.info || !client.info.wid) {
+    return res
+      .status(503)
+      .json(
+        response.error(
+          "WhatsApp belum siap. Tunggu sampai QR discan dan client terhubung."
+        )
+      );
+  }
+
   try {
-    const chatId = to.includes("@c.us") ? to : `${to}@c.us`;
+    const chatId = `${to}@c.us`;
     await client.sendMessage(chatId, message);
-    res.json(response.success("Berhasil Mengirim Pesan", { to, message }));
+    res.json({ success: true, to, message });
   } catch (err) {
     console.error("Gagal kirim:", err);
     res.status(500).json(response.error("Gagal mengirim pesan"));
