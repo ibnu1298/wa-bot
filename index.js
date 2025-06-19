@@ -1,7 +1,7 @@
 const express = require("express");
 require("dotenv").config();
 const { Client, LocalAuth } = require("whatsapp-web.js");
-const qrcode = require("qrcode-terminal");
+const qrcode = require("qrcode");
 
 const app = express();
 app.use(express.json());
@@ -13,15 +13,27 @@ const client = new Client({
   },
 });
 
-client.on("qr", (qr) => {
-  console.log("Scan QR ini dengan WhatsApp:");
-  qrcode.generate(qr, { small: true });
+client.on("qr", async (qr) => {
+  // Buat QR jadi URL image (base64)
+  const qrImage = await QRCode.toDataURL(qr);
+  console.log("Scan QR ini dari browser:");
+  console.log(qrImage);
 });
 
 client.on("ready", () => {
   console.log("WhatsApp Client ready!");
 });
+let currentQR = "";
 
+client.on("qr", async (qr) => {
+  currentQR = await QRCode.toDataURL(qr);
+  console.log("QR tersedia di: http://localhost:${PORT}/qr");
+});
+
+app.get("/qr", (req, res) => {
+  if (!currentQR) return res.send("QR belum tersedia");
+  res.send(`<img src="${currentQR}" />`);
+});
 // === Endpoint kirim pesan ===
 app.post("/send", async (req, res) => {
   const { to, message } = req.body;
