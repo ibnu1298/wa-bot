@@ -39,7 +39,7 @@ app.post("/send", async (req, res) => {
   const { to, message } = req.body;
 
   if (!to || !message) {
-    return res.status(400).json({ error: "to & message wajib diisi" });
+    return res.status(400).json(response.error("to & message wajib diisi"));
   }
   if (to.startsWith("0")) {
     return res
