@@ -1,3 +1,2 @@
-2025/06/19-14:35:57.722 cf8 Reusing MANIFEST D:\Aqil\Programming\NodeJS\wa-bot\.wwebjs_auth\session\Default\Session Storage/MANIFEST-000001
-2025/06/19-14:35:57.722 cf8 Recovering log #3
-2025/06/19-14:35:57.722 cf8 Reusing old log D:\Aqil\Programming\NodeJS\wa-bot\.wwebjs_auth\session\Default\Session Storage/000003.log 
+2025/06/20-13:24:04.971 60bc Creating DB D:\Aqil\Programming\NodeJS\wa-bot\.wwebjs_auth\session\Default\Session Storage since it was missing.
+2025/06/20-13:24:04.978 60bc Reusing MANIFEST D:\Aqil\Programming\NodeJS\wa-bot\.wwebjs_auth\session\Default\Session Storage/MANIFEST-000001

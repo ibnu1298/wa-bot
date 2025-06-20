@@ -1,3 +1,2 @@
-2025/06/19-14:35:57.259 2db4 Reusing MANIFEST D:\Aqil\Programming\NodeJS\wa-bot\.wwebjs_auth\session\Default\Service Worker\Database/MANIFEST-000001
-2025/06/19-14:35:57.259 2db4 Recovering log #3
-2025/06/19-14:35:57.260 2db4 Reusing old log D:\Aqil\Programming\NodeJS\wa-bot\.wwebjs_auth\session\Default\Service Worker\Database/000003.log 
+2025/06/20-13:24:05.619 5970 Creating DB D:\Aqil\Programming\NodeJS\wa-bot\.wwebjs_auth\session\Default\Service Worker\Database since it was missing.
+2025/06/20-13:24:05.627 5970 Reusing MANIFEST D:\Aqil\Programming\NodeJS\wa-bot\.wwebjs_auth\session\Default\Service Worker\Database/MANIFEST-000001

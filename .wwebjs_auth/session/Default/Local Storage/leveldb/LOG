@@ -1,3 +1,2 @@
-2025/06/19-14:35:57.256 2db4 Reusing MANIFEST D:\Aqil\Programming\NodeJS\wa-bot\.wwebjs_auth\session\Default\Local Storage\leveldb/MANIFEST-000001
-2025/06/19-14:35:57.256 2db4 Recovering log #3
-2025/06/19-14:35:57.256 2db4 Reusing old log D:\Aqil\Programming\NodeJS\wa-bot\.wwebjs_auth\session\Default\Local Storage\leveldb/000003.log 
+2025/06/20-13:24:04.555 60bc Creating DB D:\Aqil\Programming\NodeJS\wa-bot\.wwebjs_auth\session\Default\Local Storage\leveldb since it was missing.
+2025/06/20-13:24:04.568 60bc Reusing MANIFEST D:\Aqil\Programming\NodeJS\wa-bot\.wwebjs_auth\session\Default\Local Storage\leveldb/MANIFEST-000001
